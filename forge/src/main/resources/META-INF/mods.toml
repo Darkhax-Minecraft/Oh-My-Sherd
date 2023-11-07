@@ -13,3 +13,4 @@ authors = "${mod_author}"
 description = '''
 ${mod_description}
 '''
+itemIcon = "ohmysherd:remains_pottery_sherd"
