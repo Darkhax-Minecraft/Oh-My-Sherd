@@ -1,0 +1,14 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "net.darkhax.ohmysherd.mixin",
+  "compatibilityLevel": "JAVA_17",
+  "mixins": [
+    "MixinMonsterRoom",
+    "MixinSpawnerBlockEntity",
+    "MixinDecoratedPotPatterns"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}
