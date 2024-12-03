@@ -1,0 +1,40 @@
+package net.darkhax.ohmysherd.common.impl;
+
+import net.darkhax.ohmysherd.common.impl.config.Config;
+import net.darkhax.pricklemc.common.api.config.ConfigManager;
+import net.minecraft.core.BlockPos;
+import net.minecraft.core.registries.Registries;
+import net.minecraft.resources.ResourceKey;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.tags.TagKey;
+import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.EquipmentSlot;
+import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.enchantment.Enchantment;
+import net.minecraft.world.item.enchantment.EnchantmentHelper;
+import net.minecraft.world.item.enchantment.Enchantments;
+import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.storage.loot.LootTable;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+public class OhMySherd {
+
+    public static final String MOD_ID = "ohmysherd";
+    public static final String MOD_NAME = "OhMySherd";
+    public static final Logger LOG = LoggerFactory.getLogger(MOD_NAME);
+    public static final Config CONFIG = ConfigManager.load(MOD_ID, new Config());
+    public static final ResourceKey<LootTable> LOOT_TABLE_SKELETON_DUNGEON = ResourceKey.create(Registries.LOOT_TABLE, id("archaeology/skeleton_dungeon"));
+    public static final ResourceKey<LootTable> LOOT_TABLE_ALIEN = ResourceKey.create(Registries.LOOT_TABLE, id("archaeology/alien_relics"));
+
+    public static void init() {
+    }
+
+    public static ResourceLocation id(String path) {
+        return ResourceLocation.fromNamespaceAndPath(MOD_ID, path);
+    }
+}
