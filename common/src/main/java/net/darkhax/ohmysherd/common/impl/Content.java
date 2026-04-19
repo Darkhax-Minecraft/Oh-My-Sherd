@@ -1,9 +1,10 @@
 package net.darkhax.ohmysherd.common.impl;
 
 import net.darkhax.bookshelf.common.api.registry.ContentProvider;
-import net.darkhax.bookshelf.common.api.registry.adapters.GameRegistryAdapter;
+import net.darkhax.bookshelf.common.impl.registry.adapter.ItemRegistryAdapter;
 import net.darkhax.bookshelf.common.impl.registry.adapter.PotPatternAdapter;
-import net.minecraft.world.item.Item;
+
+import java.util.function.UnaryOperator;
 
 public class Content implements ContentProvider {
 
@@ -13,9 +14,9 @@ public class Content implements ContentProvider {
     }
 
     @Override
-    public void defineItems(GameRegistryAdapter<Item> registry) {
+    public void defineItems(ItemRegistryAdapter registry) {
         for (SherdType type : SherdType.values()) {
-            registry.add(type.itemId(), type.item());
+            registry.addSimple(type.itemId(), UnaryOperator.identity());
         }
     }
 

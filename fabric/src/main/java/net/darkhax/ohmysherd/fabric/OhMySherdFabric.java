@@ -1,9 +1,9 @@
-package net.darkhax.ohmysherd.fabric.impl;
+package net.darkhax.ohmysherd.fabric;
 
 import net.darkhax.ohmysherd.common.impl.OhMySherd;
 import net.fabricmc.api.ModInitializer;
 
-public class FabricMod implements ModInitializer {
+public class OhMySherdFabric implements ModInitializer {
 
     @Override
     public void onInitialize() {

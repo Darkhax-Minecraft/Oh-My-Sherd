@@ -1,6 +1,7 @@
 package net.darkhax.ohmysherd.common.impl;
 
 import net.darkhax.bookshelf.common.api.function.CachedSupplier;
+import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.world.item.Item;
 
 import java.util.Locale;
@@ -11,7 +12,7 @@ public enum SherdType {
     REMAINS,
     INVADER;
 
-    private final CachedSupplier<Item> sherdItem = CachedSupplier.cache(() -> new Item(new Item.Properties()));
+    private final CachedSupplier<Item> sherdItem = CachedSupplier.cache(() -> BuiltInRegistries.ITEM.getValue(OhMySherd.id(this.itemId())));
 
     public Item item() {
         return this.sherdItem.get();
