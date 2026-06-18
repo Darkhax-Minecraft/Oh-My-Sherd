@@ -5,7 +5,7 @@ import net.darkhax.ohmysherd.common.impl.util.ISpawner;
 import net.darkhax.ohmysherd.common.impl.util.Utils;
 import net.minecraft.core.BlockPos;
 import net.minecraft.util.RandomSource;
-import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.EntityTypes;
 import net.minecraft.world.level.WorldGenLevel;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
@@ -34,7 +34,7 @@ public abstract class MixinMonsterRoom extends Feature<NoneFeatureConfiguration>
     @Inject(locals = LocalCapture.CAPTURE_FAILHARD, method = "place(Lnet/minecraft/world/level/levelgen/feature/FeaturePlaceContext;)Z", at = @At(value = "INVOKE", shift = At.Shift.AFTER, target = "Lnet/minecraft/world/level/block/entity/SpawnerBlockEntity;setEntityId(Lnet/minecraft/world/entity/EntityType;Lnet/minecraft/util/RandomSource;)V"))
     private void onStructureGenerate(FeaturePlaceContext<NoneFeatureConfiguration> context, CallbackInfoReturnable<Boolean> cir, Predicate<BlockState> cantReplace, BlockPos currentPos, RandomSource rng, WorldGenLevel level) {
         if (OhMySherd.CONFIG.remains.enable_generation && level.getBlockEntity(currentPos) instanceof ISpawner spawner) {
-            if (spawner.ohmysherd$getEntityType() == EntityType.SKELETON) {
+            if (spawner.ohmysherd$getEntityType() == EntityTypes.SKELETON) {
                 final BlockPos floorPos = currentPos.below();
                 if (OhMySherd.CONFIG.remains.under_spawner) {
                     ohmysherd$placeSusBlocks(floorPos, level, cantReplace);
